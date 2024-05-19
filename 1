@@ -1,1 +1,72 @@
+#1
+f=[]
+n=[]
+g='gg wtf abc'
+g=g.split()
+for i in range(len(g)):
+    if g[i] in f:
+        n.append(g[i])
+    f.append(g[i])
+for i in range(len(n)):
+    g.remove(n[i])
+g=sorted(g)
+print(g)
 
+#2
+a=1
+b=61 
+c=[]
+d=[]
+for i in range(b + 1):
+    if i >=a:
+        c.append(i)
+for i in c:
+       for j in range(2, i):
+           if(i % j==0):
+               break;
+           if(j==i-1):
+              d.append(i)
+print(d)
+s=sum(d)
+print(s)
+
+#3
+f='аргентина манит негра'
+for i in range(len(f)):
+    f=f.replace(' ','')
+    f=f.replace('.','')
+    f=f.replace('!','')
+    f=f.replace(',','')
+n=f[::-1]
+if n==f:
+    print('полиндром')
+
+#4
+import random
+b=random.randint(1,3)
+if b==1:
+    b='бумага'
+if b==2:
+    b='камень'
+if b==3:
+    b='ножницы'
+a=input()
+print(b)
+if a==b:
+    print('ничья')
+else:
+    if a=='бумага':
+        if b=='камень':
+            print('вы выиграли')
+        else:
+            print('вы проиграли')
+    if a=='камень':
+        if b=='бумага':
+            print('вы проиграли')
+        else:
+            print('вы выиграли')
+    if a=='ножницы':
+        if b=='бумага':
+            print('вы выиграли')
+        else:
+            print('вы проиграли')
