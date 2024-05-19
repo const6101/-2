@@ -1,0 +1,266 @@
+#1
+class Book():
+    def __init__(self, avtor, name):
+        self.avtor=avtor  
+        self.name=name    
+book=Book("Хемингуэй", "Старик и море")
+print(book.name)
+print(book.avtor)
+
+
+
+
+#2
+class Soda():
+    def __init__(self, additive):
+        self.additive=additive
+    def show_my_drink(self):
+        if self.additive=='nothing':
+            print('Обычная газировка')
+        else:
+            print('Газировка', self.additive)
+soda1=Soda("additive")
+soda2=Soda("nothing")
+soda2.show_my_drink()
+
+
+
+
+#3
+class TriangleChecker():
+    def __init__(self, dl1, dl2, dl3):
+        self.dl1=dl1
+        self.dl2=dl2
+        self.dl3=dl3
+    def is_triangl(self):
+     if type(self.dl1)==int and type(self.dl2)==int and type(self.dl3)==int:
+        if self.dl1>0 and self.dl2>0 and self.dl3>0:
+             if self.dl1+self.dl2>self.dl3 and self.dl1+self.dl3>self.dl2 and self.dl2+self.dl3>self.dl1:
+                 print('Ура можно построить треугольник!')
+             else:
+                 print('Жаль, но из этого треугольник не сделать')
+        else: 
+         print('С отрицательными числами ничего не выйдет! ')
+     else:
+      print('Нужно вводить только числа!')
+triangl1=TriangleChecker(1,1,1)
+triangl2=TriangleChecker(1,2,3)
+triangl3=TriangleChecker(-1,-2,-3)
+triangl4=TriangleChecker('a','b','c')
+triangl4.is_triangl()
+
+
+
+
+#4
+class Nikola():
+   def __init__(self,name, age):
+      self.name=name
+      self.age=age
+   def Nikolay(self):
+      if self.name=='Николай':
+         print('Николай', self.age)
+      else:
+         print('я не '+self.name+', а Николай.', self.age)
+name1=Nikola('Николай', 21)
+name2=Nikola('Максим', 17)
+name2.Nikolay()
+
+
+
+
+#5
+class library():
+    def __init__(self,list):
+        self.list=list
+    def A(self,book):
+        self.list.append(book)
+    def R(self,book):
+        self.list.remove(book) 
+    def poisk(self,book):
+        a=input('Найти')
+        for i in self.list:
+            if  i==a:
+                print(self.list)               
+book=library(['Старик и море'])
+book.A("Отец и рыбка")
+print(book.list)
+
+
+
+
+#6
+class Aviakompania:
+    def __init__(self,planes,marshrut):
+        self.planes = planes
+        self.marshrut = marshrut
+    def append_s(self,model):
+        print('вы добавили модель:',model)
+        self.planes.append(model)
+        print('получившийся список самолётов:',self.planes)
+    def append_m(self,gorod):
+        print('вы добавили город в маршрут:',gorod)
+        self.marshrut.append(gorod)
+        print('получившийся список маршрутов:',self.marshrut)
+    def remove_s(self,model):
+        print('вы удалили модель:',model)
+        self.planes.remove(model) 
+        print('получившийся список самолётов:',self.planes)
+    def remove_m(self,gorod):
+        print('вы удалили город:',gorod)
+        self.marshrut.remove(gorod) 
+        print('получившийся список маршрутов:',self.marshrut)            
+    def poisk(self):
+        s=[0]
+        a=input('введите модель,которую хотите найти: ')
+        for i in self.planes:
+            if  i==a:
+                print('модель, котрую вы ищите, есть в этом списке самолётов:',self.planes)
+                s.append(1)
+            else: 
+                s.append(0)
+        d=sum(s)
+        if d==0:
+             print('такой модели не найдено')
+    def poisk2(self):
+        u=[0]
+        j=input('введите город,который хотите найти: ')
+        for i in self.marshrut:
+            if  i==j:
+                print('город, котрый вы ищите, есть в этом маршруте:',self.marshrut)
+                u.append(1)
+            else: 
+                u.append(0)
+        d=sum(u)
+        if d==0:
+             print('такого города не найдено в маршрутах')                       
+b = Aviakompania(['model1','model2'],['Москва','Казань','Екатеринбург'])
+b.poisk2()
+
+
+
+
+
+#7
+class Bank:
+    def __init__(self, people, schet, balanse):
+        self.people = people
+        self.schet = schet
+        self.balanse = balanse     
+    def show_balanse(self):
+        print ('на вашем балансе:  '+self.balanse)
+    def popolnit(self):
+        a=int(input('введите сколько хотите ввести:  '))
+        b=a*0.99
+        c=self.balanse + b
+        print('на вашем балансе:  ',c)
+    def snat(self):
+        r=int(input('введите сколько хотите вывести:  '))
+        t=r*1.01
+        if self.balanse < t:
+            print('на вашем счете недостаточно средств!!!')
+        else:
+            o=self.balanse - t
+            print('на вашем балансе:  ',o)
+            print('вы сняли:  ',r)
+name1 = Bank("Петя",'3333',0)
+name2 = Bank("Николай", "3033",3)
+name3 = Bank("Гоша","3022",4500000)
+name2.snat()
+
+
+
+
+
+#8
+import math
+class Point:
+    def __init__(self, x1,y1,x2,y2):
+        self.x2 = x2
+        self.y2 = y2
+        self.x1 = x1
+        self.y1 = y1 
+    def rasstoinie(self):
+        a=math.sqrt((self.x2-self.x1)**2+(self.y2-self.y1)**2)
+        print("расстояние между точками -",a)
+    def os(self):
+        if self.x1==0:
+            print('точка 1 лежит на оси OY')
+        if self.x2==0:
+            print('точка 2 лежит на оси OY')
+        if self.y1==0:
+            print('точка 1 лежит на оси OX')
+        if self.y2==0:
+            print('точка 1 лежит на оси OX')
+    def peremeshenie(self):
+        b=math.sqrt((self.x2-self.x1)**2+(self.y2-self.y1)**2)
+        print("модуль перемещения -",b)     
+point1 = Point(1,2,5,7)
+point2 = Point(6,0,0,7)
+point2.os()
+
+
+
+
+
+#9
+class Produkt:
+    def __init__(self, name, zena, N):
+        self.name = name
+        self.zena = zena
+        self.N = N
+    def dobavka(self):
+        print('Товара "',self.name,'" -', self.N)
+        a=int(input('введите на сколько хотите увеличить товар:  '))
+        b=self.N + a
+        print('на складе теперь ',b," товар(а)")
+    def ybrat(self):
+        print('Товара "',self.name,'" -', self.N)
+        a=int(input('введите на сколько хотите уменьшить товар:  '))
+        b=self.N - a
+        if a>self.N:
+            print('на складе недостаточно товара для уменьшения')
+        else:
+            print('на складе теперь ',b," товар(а)")
+    def cost(self):
+        print('Товара "',self.name,'" -', self.N)
+        g=self.N*self.zena
+        print('общая стоимость товара: ',g)
+p1 = Produkt("фломастеры",100,0)
+p2 = Produkt("апельсины", 30,3)
+p3 = Produkt("бутылки",20,4500000)
+p3.cost()
+
+
+
+
+#10
+class Class:
+    def __init__(self,name,age,spisok,marks):
+        self.spisok = spisok
+        self.name = name
+        self.age = age
+        self.marks = marks    
+    def append(self,urok):
+        self.spisok.append(urok)
+        print(self.spisok)
+        s=int(input('введите оценку по добавленному предмету: '))
+        if s>5 or s<0:
+            print('оценка может быть только от 0 до 5')
+        else:
+            self.marks.append(s)
+            print('оценки по данным предметам: ',self.marks)    
+    def remove(self,urok):
+        for i in range(len(self.spisok)):
+            if self.spisok[i] == urok:
+                self.marks.remove(self.marks[i]) 
+        self.spisok.remove(urok) 
+        print(self.spisok)
+        print(self.marks)
+    def markses(self):
+        print('все предметы ученика:', self.spisok)
+        s= sum(self.marks)
+        w=s/len(self.marks)
+        print('средний балл студента:',w)        
+b = Class('Петя',23,['математика','русский'],[2,5])
+b.append('литература')
